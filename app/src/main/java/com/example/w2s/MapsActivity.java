@@ -89,10 +89,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (sdestination.equals("") && !check) {
                 Toast.makeText(getApplicationContext(), "Please Enter Destination Location", Toast.LENGTH_SHORT).show();
             } else {
-                mDestination = getLocationFromAddress(this, sdestination);
-                if (mDestination != null)
-                    drawRoute();
-            }
+                if(mOrigin == null){
+                    Toast.makeText(getApplicationContext(), "Enable Location First ", Toast.LENGTH_SHORT).show();
+                }else {
+                   mDestination = getLocationFromAddress(this, sdestination);
+                     if (mDestination != null)
+                     drawRoute();
+                }
+           }
         });
 
     }
